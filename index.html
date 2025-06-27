@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="محلل أداء اللاعبين بالذكاء الاصطناعي - تحليل شامل لأداء لاعبي كرة القدم باستخدام أحدث تقنيات الرؤية الحاسوبية">
+    <meta name="keywords" content="تحليل اللاعبين, كرة القدم, ذكاء اصطناعي, رؤية حاسوبية, إحصائيات">
+    <meta name="author" content="مشروع تخرج متميز">
+    <meta name="robots" content="index, follow">
+    <title>محلل أداء اللاعبين بالذكاء الاصطناعي</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://generativelanguage.googleapis.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="محلل أداء اللاعبين بالذكاء الاصطناعي">
+    <meta property="og:description" content="إضفاء الطابع الديمقراطي على تحليلات كرة القدم المتقدمة">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="محلل أداء اللاعبين بالذكاء الاصطناعي">
+    <meta property="twitter:description" content="إضفاء الطابع الديمقراطي على تحليلات كرة القدم المتقدمة">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنفوجرافيك: محلل أداء اللاعبين بالذكاء الاصطناعي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Narrative Plan:
+    1. Hook: AI in Football Market Growth & The Problem (High Cost).
+    2. What is it?: Define the project.
+    3. Solution: Introduce the AI Player Analyzer.
+    4. Deep Dive: Showcase core features with detailed text and HTML tables for general and role-specific metrics, augmented with Gemini LLM features. Charts removed. Visual presentation of core capabilities enhanced for attractiveness.
+    5. How it Works: Detailed explanation of the data processing pipeline.
+    6. User Journey: Step-by-step user interaction.
+    7. Impact & Future: Key benefits (70% faster) and a future roadmap.
+    8. Conclusion: Summarize the project's value.
+    -->
+    <!-- Visualization Choices:
+    - Market Growth: Text-based statistics. Goal: Inform.
+    - Market Gap: Text-based comparison. Goal: Compare.
+    - Player Skills: Text-based description with emoji. Goal: Compare.
+    - "What If" Scenario: Text-based explanation with emoji. Goal: Inform.
+    - Head-to-Head: Text-based comparison with emoji. Goal: Compare.
+    - Physical Effort: Text-based description with emoji. Goal: Compare.
+    - Contextual Pass Analysis: Text block with emoji/list. Goal: Inform/Organize.
+    - Dynamic Heatmaps: HTML/CSS grid simulation. Goal: Inform/Organize.
+    - Play Pattern Detection: Text block with emoji/list. Goal: Inform/Organize.
+    - Training Suggestions & Reports: Text block with emoji/list. Goal: Inform/Organize.
+    - General Metrics: HTML table. Goal: Inform/Organize.
+    - Physical Performance: HTML table. Goal: Inform/Organize.
+    - Mental & Tactical Performance: HTML table. Goal: Inform/Organize.
+    - General Technical Performance: HTML table. Goal: Inform/Organize.
+    - Defensive Player Metrics: HTML table. Goal: Inform/Organize.
+    - Attacking Midfielder Metrics: HTML table. Goal: Inform/Organize.
+    - Forward/Winger Metrics: HTML table. Goal: Inform/Organize.
+    - Goalkeeper Metrics: HTML table. Goal: Inform/Organize.
+    - Advanced AI Metrics: HTML table. Goal: Inform/Organize.
+    - Additional Distinguishing Factors: HTML list. Goal: Inform/Organize.
+    - Data Flow: HTML/Tailwind flowchart with enhanced text. Goal: Organize. No Mermaid JS.
+    - User Journey: HTML numbered list/steps. Goal: Organize.
+    - Future Roadmap: HTML/Tailwind timeline. Goal: Organize.
+    - AI Strengths/Weaknesses Summary: Button and text output (Gemini LLM). Goal: Inform.
+    - AI Custom Training Suggestion: Button and text output (Gemini LLM). Goal: Organize/Inform.
+    -->
+    <!-- Color Palette: Brilliant Blues -->
+    <!-- NEITHER Mermaid JS NOR SVG were used. All diagrams are HTML/CSS. All charts have been removed. -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.8;
+            overflow-x: hidden;
+            font-size: 16px;
+            color: #2d3748;
+        }
+
+        .tajawal-black {
+            font-weight: 900;
+        }
+
+        /* Enhanced Typography */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #4a5568;
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+
+        .text-large {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .text-emphasis {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .text-highlight {
+            background: linear-gradient(120deg, rgba(0, 161, 228, 0.1) 0%, rgba(0, 119, 192, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #0077C0;
+        }
+
+        /* Modern Card Styling */
+        .modern-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00A1E4, #0077C0, #005082);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .modern-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .modern-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 119, 192, 0.15);
+        }
+
+        /* Enhanced Header */
+        .hero-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInFromTop 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            opacity: 0.9;
+            animation: slideInFromBottom 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInFromTop {
+            0% { opacity: 0; transform: translateY(-100px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInFromBottom {
+            0% { opacity: 0; transform: translateY(100px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Enhanced Heatmap */
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 3px;
+            width: 100%;
+            max-width: 450px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #e0e0e0, #f0f0f0);
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .heatmap-cell {
+            aspect-ratio: 1;
+            position: relative;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .heatmap-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .heatmap-cell.intensity-1 {
+            background: linear-gradient(135deg, rgba(0, 161, 228, 0.2), rgba(0, 161, 228, 0.3));
+        }
+
+        .heatmap-cell.intensity-2 {
+            background: linear-gradient(135deg, rgba(0, 161, 228, 0.4), rgba(0, 161, 228, 0.5));
+        }
+
+        .heatmap-cell.intensity-3 {
+            background: linear-gradient(135deg, rgba(0, 161, 228, 0.6), rgba(0, 161, 228, 0.7));
+        }
+
+        .heatmap-cell.intensity-4 {
+            background: linear-gradient(135deg, rgba(0, 161, 228, 0.8), rgba(0, 161, 228, 0.9));
+        }
+
+        .heatmap-cell.intensity-5 {
+            background: linear-gradient(135deg, rgba(0, 161, 228, 1), rgba(0, 119, 192, 1));
+            box-shadow: 0 0 20px rgba(0, 161, 228, 0.5);
+        }
+
+        /* Enhanced LLM Output */
+        .llm-output {
+            background: linear-gradient(135deg, #e0f2f7 0%, #f0f8ff 100%);
+            border-right: 6px solid #00A1E4;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            border-radius: 15px;
+            font-size: 1rem;
+            color: #005082;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            box-shadow: 0 10px 30px rgba(0, 161, 228, 0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease-out;
+            line-height: 1.8;
+        }
+
+        .llm-output.analysis-block {
+            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+            border: 2px solid rgba(0, 161, 228, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 35px rgba(0, 161, 228, 0.1);
+            position: relative;
+            overflow: hidden;
+            white-space: normal;
+        }
+
+        .llm-output.analysis-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #00A1E4, #667eea, #764ba2);
+        }
+
+        .llm-output.analysis-block p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #374151;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Enhanced Loading Spinner */
+        .loading-spinner {
+            border: 6px solid rgba(0, 161, 228, 0.2);
+            border-top: 6px solid #00A1E4;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+            box-shadow: 0 0 20px rgba(0, 161, 228, 0.3);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced User Journey */
+        .user-journey-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .user-journey-step:hover {
+            background: rgba(255, 255, 255, 1);
+            border-left-color: #00A1E4;
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 161, 228, 0.12);
+        }
+
+        .user-journey-step .icon {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #00A1E4, #0077C0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 2rem;
+            flex-shrink: 0;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .user-journey-step .text {
+            flex-grow: 1;
+        }
+
+        .user-journey-step h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0077C0;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .user-journey-step p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 0;
+        }
+
+        /* Enhanced Table Styling */
+        .data-table-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(0, 161, 228, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .data-table-container:hover {
+            box-shadow: 0 20px 40px rgba(0, 161, 228, 0.15);
+        }
+
+        .data-table-container h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0077C0;
+            margin-bottom: 2rem;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .data-table {
+            width: 100%;
+            text-align: right;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1.25rem 1.75rem;
+            border-bottom: 1px solid #f0f4f8;
+            transition: all 0.3s ease;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #0077C0, #00A1E4);
+            color: white;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            letter-spacing: 0.3px;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: rgba(240, 248, 255, 0.4);
+        }
+
+        .data-table tr:hover {
+            background: rgba(0, 161, 228, 0.08);
+            transform: scale(1.005);
+        }
+
+        .data-table td {
+            font-size: 1rem;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .data-table td:first-child {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        /* Enhanced Buttons */
+        .modern-btn {
+            background: linear-gradient(135deg, #00A1E4 0%, #0077C0 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 161, 228, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .modern-btn:hover::before {
+            left: 100%;
+        }
+
+        .modern-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 161, 228, 0.4);
+        }
+
+        /* Enhanced Section Headers */
+        .section-header {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #005082, #0077C0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #00A1E4, #0077C0);
+            border-radius: 2px;
+        }
+
+        /* Enhanced Content Typography */
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: #374151;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-text-center {
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #374151;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .highlight-number {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #0077C0;
+            background: linear-gradient(120deg, rgba(0, 161, 228, 0.1) 0%, rgba(0, 119, 192, 0.1) 100%);
+            padding: 2px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 0 4px;
+        }
+
+        /* Enhanced Asterisk Text Styling */
+        .asterisk-emphasis {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 1.05em;
+            padding: 3px 8px;
+            border-radius: 6px;
+            position: relative;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin: 0 2px;
+            transition: all 0.3s ease;
+        }
+
+        .asterisk-emphasis::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            border-radius: 6px;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .asterisk-emphasis:hover::before {
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.25) 0%, rgba(118, 75, 162, 0.25) 100%);
+            transform: scale(1.05);
+        }
+
+        .asterisk-emphasis:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Enhanced Analysis Text Block */
+        .analysis-block {
+            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+            border: 2px solid rgba(0, 161, 228, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 35px rgba(0, 161, 228, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analysis-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #00A1E4, #667eea, #764ba2);
+        }
+
+        .analysis-block h3 {
+            color: #0077C0;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .analysis-block h4 {
+            color: #005082;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 161, 228, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%);
+            border-radius: 12px;
+            border-right: 4px solid #00A1E4;
+        }
+
+        .analysis-block .section-content {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #667eea;
+        }
+
+        .analysis-block .strength-point {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-left: 4px solid #10b981;
+            padding: 1rem 1.5rem;
+            margin: 0.75rem 0;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .analysis-block .strength-point::before {
+            content: '✓';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .analysis-block .weakness-point {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.5rem;
+            margin: 0.75rem 0;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .analysis-block .weakness-point::before {
+            content: '!';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .analysis-block .training-exercise {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .analysis-block .exercise-title {
+            color: #7c3aed;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .analysis-block .exercise-section {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            border-right: 3px solid #8b5cf6;
+        }
+
+        .analysis-block .exercise-section h5 {
+            color: #6d28d9;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .analysis-block ul {
+            list-style: none;
+            padding-right: 1rem;
+        }
+
+        .analysis-block ul li {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .analysis-block ul li::before {
+            content: '▶';
+            position: absolute;
+            right: 0;
+            color: #00A1E4;
+            font-weight: bold;
+        }
+
+        .analysis-block p {
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Process Flow Enhancement */
+        .process-step {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            min-width: 220px;
+            position: relative;
+            text-align: center;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #00A1E4;
+            box-shadow: 0 25px 50px rgba(0, 161, 228, 0.2);
+        }
+
+        .process-step .step-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0077C0;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .process-step p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 0;
+        }
+
+        .process-arrow {
+            font-size: 3rem;
+            color: #00A1E4;
+            filter: drop-shadow(0 5px 10px rgba(0,161,228,0.3));
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive Grid */
+        .responsive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #00A1E4;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 161, 228, 0.15);
+        }
+
+        .content-card h3 {
+            color: #0077C0;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .content-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 0;
+        }
+
+        .content-card .text-highlight {
+            font-weight: 700;
+            color: #0077C0;
+        }
+
+        /* Accessibility Helper Classes */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Skip Link for Keyboard Navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Focus Management */
+        *:focus {
+            outline: 2px solid #00A1E4;
+            outline-offset: 2px;
+        }
+
+        /* Color Contrast Improvements */
+        .text-emphasis {
+            font-weight: 700;
+            color: #005082; /* Darker blue for better contrast */
+        }
+
+        .text-highlight {
+            font-weight: 700;
+            color: #003d5c; /* Even darker for high contrast */
+        }
+
+        /* Base Mobile-First Styles */
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Enhanced Grid System */
+        .responsive-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        /* Process Flow - Mobile First */
+        .process-flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .process-step {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            width: 100%;
+            max-width: 300px;
+            position: relative;
+            text-align: center;
+        }
+
+        .process-arrow {
+            font-size: 2rem;
+            color: #00A1E4;
+            filter: drop-shadow(0 5px 10px rgba(0,161,228,0.3));
+            animation: pulse 2s infinite;
+            transform: rotate(90deg);
+        }
+
+        /* Table Responsiveness */
+        .data-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table {
+            width: 100%;
+            min-width: 300px;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem 0.5rem;
+            text-align: right;
+            border-bottom: 1px solid #e5e7eb;
+            word-wrap: break-word;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #00A1E4;
+            width: 100%;
+        }
+
+        .content-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        /* Hero Section */
+        .hero-title {
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .section-header {
+            font-size: 1.75rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* User Journey Steps */
+        .user-journey-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .user-journey-step .icon {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #00A1E4, #0077C0);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .user-journey-step .text h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: #0077C0;
+        }
+
+        .user-journey-step .text p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Modern Button */
+        .modern-btn {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #00A1E4, #0077C0);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 161, 228, 0.3);
+        }
+
+        /* Accessibility Improvements */
+        .modern-btn:focus {
+            outline: 3px solid rgba(0, 161, 228, 0.5);
+            outline-offset: 2px;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+            font-weight: 700;
+            color: #0077C0;
+        }
+
+        .data-table tr:hover {
+            background: rgba(0, 161, 228, 0.05);
+        }
+
+        /* Small Screens (640px and up) */
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .responsive-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-header {
+                font-size: 2rem;
+            }
+
+            .data-table {
+                font-size: 1rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 1rem 0.75rem;
+            }
+
+            .process-step {
+                padding: 2rem;
+                max-width: 350px;
+            }
+        }
+
+        /* Medium Screens (768px and up) */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .responsive-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+
+            .main-layout {
+                gap: 2rem;
+            }
+
+            .process-flow-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .process-arrow {
+                transform: rotate(0deg);
+                font-size: 2.5rem;
+            }
+
+            .content-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-header {
+                font-size: 2.25rem;
+            }
+
+            .user-journey-step .icon {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1rem;
+            }
+
+            .user-journey-step .text h4 {
+                font-size: 1.25rem;
+            }
+
+            .user-journey-step .text p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Large Screens (1024px and up) */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 2rem;
+            }
+
+            .responsive-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2.5rem;
+            }
+
+            .main-layout {
+                gap: 2.5rem;
+            }
+
+            .process-flow-container {
+                flex-wrap: nowrap;
+                gap: 2rem;
+            }
+
+            .process-step {
+                padding: 2.5rem;
+                max-width: 400px;
+                min-width: 250px;
+            }
+
+            .process-step:hover {
+                transform: translateY(-10px) scale(1.05);
+                border-color: #00A1E4;
+                box-shadow: 0 25px 50px rgba(0, 161, 228, 0.2);
+            }
+
+            .process-arrow {
+                font-size: 3rem;
+            }
+
+            .content-card {
+                padding: 2.5rem;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .section-header {
+                font-size: 2.5rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 1.25rem 1rem;
+            }
+        }
+
+        /* Extra Large Screens (1280px and up) */
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .responsive-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 3rem;
+            }
+
+            .main-layout {
+                gap: 3rem;
+            }
+
+            .process-step {
+                max-width: 450px;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .section-header {
+                font-size: 2.75rem;
+            }
+
+            .content-card h3 {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .content-card {
+                border: 2px solid #000;
+            }
+
+            .modern-btn {
+                border: 2px solid #000;
+            }
+
+            .data-table th,
+            .data-table td {
+                border: 1px solid #000;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .process-step,
+            .content-card,
+            .modern-btn,
+            .user-journey-step {
+                transition: none;
+            }
+
+            .process-arrow {
+                animation: none;
+            }
+
+            .loading-spinner {
+                animation: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .modern-btn {
+                display: none;
+            }
+
+            .loading-spinner {
+                display: none;
+            }
+
+            .process-arrow {
+                color: #000;
+                font-size: 1rem;
+            }
+
+            .content-card,
+            .data-table-container {
+                box-shadow: none;
+                border: 1px solid #000;
+            }
+        }
+    </style>
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <!-- Header -->
+        <header class="hero-header" role="banner">
+            <div class="container mx-auto px-4">
+                <h1 class="hero-title">محلل أداء اللاعبين بالذكاء الاصطناعي ⚽</h1>
+                <p class="hero-subtitle">إضفاء الطابع الديمقراطي على تحليلات كرة القدم المتقدمة</p>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <main id="main-content" 
+              class="container main-layout"
+              role="main" 
+              aria-label="محتوى تحليل أداء اللاعبين الرئيسي">
+
+            <!-- New Section: What is the Project -->
+            <section class="modern-card p-8 mb-8">
+                <h2 class="section-header">ما هو مشروع "محلل أداء اللاعبين بالذكاء الاصطناعي"؟ 🤔</h2>
+                <div class="responsive-grid">
+                    <div class="content-card">
+                        <h3>🎯 الهدف الأساسي</h3>
+                        <p class="content-text">يهدف هذا المشروع إلى تقديم <span class="text-highlight">حل مبتكر وفعال من حيث التكلفة</span> لتحليل أداء لاعبي كرة القدم. يعتمد النظام على <span class="text-emphasis">أحدث تقنيات الرؤية الحاسوبية والتعلم الآلي</span> لتقديم تحليلات متطورة كانت في السابق حكراً على الأندية النخبوية.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>🌍 الرؤية العامة</h3>
+                        <p class="content-text">نسعى لجعل <span class="text-highlight">التحليلات الاحترافية في متناول قطاع أوسع</span> من المستفيدين، بما في ذلك فرق الناشئين، الأكاديميات، واللاعبين الأفراد، وذلك باستخدام <span class="text-emphasis">مقاطع الفيديو العادية للمباريات</span> (حتى الملتقطة بكاميرا واحدة أو هاتف ذكي) أو بيانات المباريات القياسية.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: Market Growth -->
+            <section class="modern-card p-8 mb-8">
+                <h2 class="section-header">ثورة الذكاء الاصطناعي في كرة القدم العالمية</h2>
+                <div class="responsive-grid">
+                    <div class="content-card">
+                        <h3>📈 نمو السوق</h3>
+                        <p class="content-text">يشهد سوق الذكاء الاصطناعي في الرياضة <span class="text-emphasis">نموًا هائلاً</span>، مع توقعات بوصول قيمة السوق إلى <span class="highlight-number">36.7 مليار دولار بحلول عام 2033</span> (معدل نمو سنوي مركب يبلغ <span class="text-highlight">30.3%</span>).</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>🎯 هدفنا</h3>
+                        <p class="content-text">يهدف مشروعنا إلى <span class="text-highlight">سد فجوة الوصول إلى التكنولوجيا المتقدمة</span> وتوفير تحليلات متقدمة <span class="text-emphasis">بتكلفة معقولة</span> لفرق الهواة والأكاديميات.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Core Capabilities -->
+            <section class="modern-card p-8 mb-8">
+                <h2 class="section-header">قدرات تحليلية عميقة تتجاوز الأرقام</h2>
+                <div class="responsive-grid">
+                    <!-- Player Skills Description -->
+                    <div class="content-card">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">تقييم شامل للمهارات ✨</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">يقدم نظامنا تقييماً شاملاً ومتعدد الأبعاد لأداء اللاعبين (من
+                            10)، يغطي جوانب حيوية مثل **دقة التمرير، السرعة، التمركز الدفاعي، التحكم بالكرة، فعالية
+                            التسديد، والمجهود البدني**. رؤية متكاملة لتقييم القدرات الفنية والبدنية.</p>
+                    </div>
+
+                    <!-- What If Scenario Description -->
+                    <div class="content-card">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">تحليل سيناريوهات "ماذا لو؟" 💡
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">نأخذك إلى ما وراء الأرقام مع <span class="asterisk-emphasis">تحليل سيناريوهات "ماذا لو؟"</span>.
+                            هل كان قرار اللاعب في اللحظات الحاسمة هو الأفضل؟ ماذا لو سدد بدلاً من التمرير؟ يمنحك نظامنا
+                            رؤى عميقة لتقييم <span class="asterisk-emphasis">جودة القرار</span>، وفتح آفاق جديدة لتحسين الأداء التكتيكي.</p>
+                    </div>
+
+                    <!-- Contextual Pass Analysis -->
+                    <div class="content-card">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">تحليل التمريرات في سياق المباراة ⚽
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3 leading-relaxed">نحلل كل تمريرة في <span class="asterisk-emphasis">سياق المباراة الكامل</span>. لا يقتصر
+                            التحليل على مجرد إحصائيات التمرير، بل يجيب على أسئلة حاسمة: <br> • هل تمت التمريرة تحت ضغط
+                            الخصم؟ <br> • هل أسفرت عن فرصة خطيرة؟ <br> • هل كانت في منطقة حاسمة من الملعب؟ <br> هذا
+                            الفهم العميق يربط الأرقام بالواقع التكتيكي.</p>
+                    </div>
+
+                    <!-- Dynamic Heatmaps -->
+                    <div class="content-card text-center">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">الخرائط الحرارية الديناميكية 🔥
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">استكشف <span class="asterisk-emphasis">الخرائط الحرارية الديناميكية</span> التي تصور بدقة
+                            تحركات اللاعبين ومناطق نشاطهم في الملعب. تعرف على أنماط التمركز، مدى التغطية الدفاعية،
+                            والمناطق الأكثر فعالية هجومياً. رؤى بصرية قوية لتقييم الانتشار التكتيكي.</p>
+                        <div class="heatmap-grid">
+                            <div class="heatmap-cell intensity-1"></div>
+                            <div class="heatmap-cell intensity-2"></div>
+                            <div class="heatmap-cell intensity-3"></div>
+                            <div class="heatmap-cell intensity-4"></div>
+                            <div class="heatmap-cell intensity-5"></div>
+                            <div class="heatmap-cell intensity-2"></div>
+                            <div class="heatmap-cell intensity-3"></div>
+                            <div class="heatmap-cell intensity-5"></div>
+                            <div class="heatmap-cell intensity-4"></div>
+                            <div class="heatmap-cell intensity-3"></div>
+                            <div class="heatmap-cell intensity-1"></div>
+                            <div class="heatmap-cell intensity-2"></div>
+                            <div class="heatmap-cell intensity-3"></div>
+                            <div class="heatmap-cell intensity-2"></div>
+                            <div class="heatmap-cell intensity-1"></div>
+                        </div>
+                    </div>
+
+                    <!-- Head-to-Head Comparison Description -->
+                    <div class="content-card">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">مقارنة تنافسية مباشرة 🆚</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">قارن أداء لاعبيك مباشرة مع الخصوم الذين واجهوهم في الملعب. يكشف
+                            نظامنا عن <span class="asterisk-emphasis">نقاط القوة والضعف في المواجهات الفردية</span>، مثل نسبة الفوز بالصراعات الثنائية،
+                            والقدرة على التفوق على الخصم المباشر. استراتيجيات الفوز تبدأ بفهم المواجهات الفردية.</p>
+                    </div>
+
+                    <!-- Physical Effort Description -->
+                    <div class="content-card">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">تحليل الجهد البدني 🏃‍♂️💨</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">راقب <span class="asterisk-emphasis">الجهد البدني</span> للاعبين بدقة متناهية. يوفر النظام تحليلاً
+                            مفصلاً لـ <span class="asterisk-emphasis">عدد السبرينتات، أوقات الجري مقابل الراحة، ومدى التعب البدني خلال المباراة</span>. هذه
+                            البيانات حيوية لتحسين برامج اللياقة وإدارة الحمل البدني بفعالية، وتقليل مخاطر الإصابات.</p>
+                    </div>
+
+                    <!-- Play Pattern Detection -->
+                    <div class="content-card">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">اكتشاف أنماط اللعب 🔬</h3>
+                        <p class="text-sm text-gray-600 mb-3 leading-relaxed">اكتشف <span class="asterisk-emphasis">الأنماط الفريدة</span> في أداء كل لاعب باستخدام قوة
+                            الذكاء الاصطناعي. هل يميل لاعبك للتمرير في اتجاه معين؟ هل يبدأ الضغط في توقيتات محددة من
+                            المباراة؟ يساعد هذا التحليل في بناء <span class="asterisk-emphasis">ملف شخصي تكتيكي</span> عميق لكل لاعب.</p>
+                    </div>
+
+                    <!-- Training Suggestions & Reports -->
+                    <div class="content-card">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">اقتراح التدريبات وتكامل التقارير
+                            📝</h3>
+                        <p class="text-sm text-gray-600 mb-3 leading-relaxed">بناءً على نقاط الضعف المحددة، يقدم النظام <span class="asterisk-emphasis">اقتراحات
+                            تدريبية مخصصة</span> لتعزيز الأداء. تتوفر <span class="asterisk-emphasis">تقارير مفصلة وسهلة المشاركة</span> بصيغة PDF أو كروابط، مع
+                            دعم كامل للأجهزة المحمولة وواجهة متعددة اللغات (العربية، الإنجليزية، الألمانية) لضمان الوصول
+                            العالمي.</p>
+                    </div>
+                </div>
+
+                    <!-- NEW TABLES START HERE -->
+
+                    <!-- بيانات عامة لأي لاعب -->
+                    <div class="data-table-container col-span-full">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">🧠 أولاً: البيانات العامة لأي لاعب
+                        </h3>
+                        <table class="data-table" 
+                               role="table" 
+                               aria-labelledby="general-data-heading">
+                            <caption class="sr-only" id="general-data-heading">
+                                جدول البيانات العامة لأي لاعب كرة قدم
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">البند</th>
+                                    <th scope="col">التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الاسم</td>
+                                    <td>الاسم الكامل</td>
+                                </tr>
+                                <tr>
+                                    <td>المركز</td>
+                                    <td>حارس، مدافع، وسط، مهاجم</td>
+                                </tr>
+                                <tr>
+                                    <td>القدم الأساسية</td>
+                                    <td>يمين / شمال / الاثنين</td>
+                                </tr>
+                                <tr>
+                                    <td>العمر</td>
+                                    <td>لتحديد ذروة الأداء</td>
+                                </tr>
+                                <tr>
+                                    <td>عدد الدقائق</td>
+                                    <td>لضبط الإحصائيات بالنسبة للوقت</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- الأداء البدني (Physical Performance) -->
+                    <div class="data-table-container col-span-full">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">🚀 الأداء البدني (Physical
+                            Performance)</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>المسافة المقطوعة</td>
+                                    <td>كم كيلومتر قطع خلال المباراة</td>
+                                </tr>
+                                <tr>
+                                    <td>السرعة القصوى</td>
+                                    <td>أعلى سرعة وصلها</td>
+                                </tr>
+                                <tr>
+                                    <td>عدد السبرينتس</td>
+                                    <td>اندفاعات عالية السرعة</td>
+                                </tr>
+                                <tr>
+                                    <td>معدل الجري</td>
+                                    <td>متوسط السرعة على مدار المباراة</td>
+                                </tr>
+                                <tr>
+                                    <td>قوة الالتحامات</td>
+                                    <td>التحام بدني ناجح أو لا</td>
+                                </tr>
+                                <tr>
+                                    <td>اللياقة في آخر المباراة</td>
+                                    <td>هل بينخفض مستواه مع الوقت؟</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- الأداء العقلي والتكتيكي -->
+                    <div class="data-table-container col-span-full">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">🧠 الأداء العقلي والتكتيكي</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>القرارات تحت الضغط</td>
+                                    <td>هل بياخد قرارات صح لما يكون مضغوط؟</td>
+                                </tr>
+                                <tr>
+                                    <td>الذكاء المكاني</td>
+                                    <td>تمركزه في الملعب ذكي ولا لأ</td>
+                                </tr>
+                                <tr>
+                                    <td>التحركات بدون كرة</td>
+                                    <td>هل بيفتح مساحات أو بيستنى الكرة؟</td>
+                                </tr>
+                                <tr>
+                                    <td>الالتزام التكتيكي</td>
+                                    <td>بينفذ خطة المدرب؟ بيضغط ولا لأ؟</td>
+                                </tr>
+                                <tr>
+                                    <td>التغطية</td>
+                                    <td>بيساعد زمايله ولا بيسيب المساحات؟</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- الأداء الفني العام -->
+                    <div class="data-table-container col-span-full">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">🎯 الأداء الفني العام</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>عدد التمريرات</td>
+                                    <td>دقة التمرير - تمريرات أمامية/خلفية</td>
+                                </tr>
+                                <tr>
+                                    <td>التحكم في الكرة</td>
+                                    <td>عدد الاستلامات – عدد لمسات الكرة</td>
+                                </tr>
+                                <tr>
+                                    <td>التمريرات المفتاحية</td>
+                                    <td>تمريرات خلقت فرص (Key Passes)</td>
+                                </tr>
+                                <tr>
+                                    <td>معدل فقد الكرة</td>
+                                    <td>كام مرة فقد الكرة</td>
+                                </tr>
+                                <tr>
+                                    <td>عدد المراوغات الناجحة</td>
+                                    <td>وهل بيتجاوز المدافعين بشكل فعال؟</td>
+                                </tr>
+                                <tr>
+                                    <td>الاستخدام بالقدم الضعيفة</td>
+                                    <td>بيلعب بالقدم التانية ولا بيعتمد على واحدة بس؟</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- لو لاعب دفاعي (مدافع أو وسط دفاعي) -->
+                    <div class="data-table-container">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">⚔️ لو لاعب دفاعي (مدافع أو وسط
+                            دفاعي)</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الاعتراضات (Interceptions)</td>
+                                    <td>قطع تمريرات الخصم</td>
+                                </tr>
+                                <tr>
+                                    <td>التدخلات (Tackles)</td>
+                                    <td>تدخلات مباشرة على الكرة</td>
+                                </tr>
+                                <tr>
+                                    <td>الكرات الهوائية</td>
+                                    <td>نسبة الفوز بالصراعات الهوائية</td>
+                                </tr>
+                                <tr>
+                                    <td>التشتيت</td>
+                                    <td>عدد الكرات اللي شالها</td>
+                                </tr>
+                                <tr>
+                                    <td>التغطية العكسية</td>
+                                    <td>هل بيغطي زميله لما يطلع؟</td>
+                                </tr>
+                                <tr>
+                                    <td>الأخطاء الدفاعية</td>
+                                    <td>تسبب في هدف أو فرصة؟</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- لو لاعب وسط هجومي / صانع ألعاب -->
+                    <div class="data-table-container">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">🎨 لو لاعب وسط هجومي / صانع ألعاب
+                        </h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>صناعة الفرص</td>
+                                    <td>عدد الفرص اللي خلقها</td>
+                                </tr>
+                                <tr>
+                                    <td>التمريرات في الثلث الأخير</td>
+                                    <td>دقتها وعددها</td>
+                                </tr>
+                                <tr>
+                                    <td>التمريرات البينية</td>
+                                    <td>اخترق الدفاع؟</td>
+                                </tr>
+                                <tr>
+                                    <td>التحكم تحت الضغط</td>
+                                    <td>بيفقد الكرة ولا بيحتفظ؟</td>
+                                </tr>
+                                <tr>
+                                    <td>عدد اللمسات في مناطق الخصم</td>
+                                    <td>موجود فين؟</td>
+                                </tr>
+                                <tr>
+                                    <td>تغيير اتجاه اللعب</td>
+                                    <td>بيوزع اللعب ولا لأ؟</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- لو مهاجم / جناح -->
+                    <div class="data-table-container">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">🥅 لو مهاجم / جناح</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>عدد التسديدات</td>
+                                    <td>من داخل وخارج الصندوق</td>
+                                </tr>
+                                <tr>
+                                    <td>دقة التسديد</td>
+                                    <td>Shots on target %</td>
+                                </tr>
+                                <tr>
+                                    <td>معدل xG</td>
+                                    <td>Expected Goals حسب الفرص</td>
+                                </tr>
+                                <tr>
+                                    <td>التمركز الهجومي</td>
+                                    <td>بيتحرك صح؟ في المكان المناسب؟</td>
+                                </tr>
+                                <tr>
+                                    <td>المراوغات</td>
+                                    <td>بيتجاوز المدافعين؟</td>
+                                </tr>
+                                <tr>
+                                    <td>فرص مهدرة</td>
+                                    <td>كام فرصة محققة ضيعها؟</td>
+                                </tr>
+                                <tr>
+                                    <td>عدد التمريرات الحاسمة</td>
+                                    <td>Assists</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- لو حارس مرمى -->
+                    <div class="data-table-container">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">🧤 لو حارس مرمى</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>التصديات</td>
+                                    <td>عدد ودقة التصديات</td>
+                                </tr>
+                                <tr>
+                                    <td>التصدي للانفرادات</td>
+                                    <td>One-on-one situations</td>
+                                </tr>
+                                <tr>
+                                    <td>التصدي لركلات الجزاء</td>
+                                    <td>نسبة النجاح</td>
+                                </tr>
+                                <tr>
+                                    <td>الكرات العرضية</td>
+                                    <td>السيطرة على الكرات في الهواء</td>
+                                </tr>
+                                <tr>
+                                    <td>البناء من الخلف</td>
+                                    <td>دقة التمرير القصير والطويل</td>
+                                </tr>
+                                <tr>
+                                    <td>التمركز</td>
+                                    <td>وقت التسديد – في المكان الصح؟</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- تحليلات متقدمة (من الذكاء الاصطناعي) -->
+                    <div class="data-table-container col-span-full">
+                        <h3 class="text-xl font-bold text-center text-[#0077C0] mb-3">📊 تحليلات متقدمة (من الذكاء
+                            الاصطناعي)</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>البند</th>
+                                    <th>التوضيح</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>xG (Expected Goals)</td>
+                                    <td>احتمالية تسجيل الهدف بناءً على الموقف</td>
+                                </tr>
+
+                                <tr>
+                                    <td>xA (Expected Assists)</td>
+                                    <td>احتمالية أن تؤدي تمريرته إلى هدف</td>
+                                </tr>
+                                <tr>
+                                    <td>PPDA</td>
+                                    <td>عدد التمريرات قبل تدخل دفاعي – مقياس الضغط</td>
+                                </tr>
+                                <tr>
+                                    <td>Packing rate</td>
+                                    <td>عدد اللاعبين اللي بيعديهم بتمريرة واحدة</td>
+                                </tr>
+                                <tr>
+                                    <td>Heatmap</td>
+                                    <td>خريطة تحركه طول الماتش</td>
+                                </tr>
+                                <tr>
+                                    <td>Pass Network</td>
+                                    <td>خريطة التواصل بينه وبين زمايله</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- New: Additional Distinguishing Factors -->
+                    <div class="content-card col-span-full">
+                        <h3>🧠 حاجات إضافية ممكن تميز اللاعب</h3>
+                        <ul class="space-y-3 text-base text-gray-700 list-disc list-inside text-right mb-6">
+                            <li><span class="text-emphasis">الذكاء التكتيكي:</span> هل يتحرك في المكان الصحيح في التوقيت الصحيح؟</li>
+                            <li><span class="text-emphasis">المهارة:</span> عدد المراوغات الناجحة، استخدام القدمين.</li>
+                            <li><span class="text-emphasis">الرؤية:</span> هل يرى زملاءه في المواقف الخطيرة؟</li>
+                        </ul>
+                        <div class="space-y-4">
+                            <button id="summarizePlayerBtn" 
+                                    class="modern-btn w-full"
+                                    aria-describedby="summarize-btn-description">
+                                تحليل نقاط القوة والضعف بالذكاء الاصطناعي ✨
+                            </button>
+                            <div id="summarize-btn-description" class="sr-only">
+                                اضغط للحصول على تحليل شامل لنقاط القوة والضعف باستخدام الذكاء الاصطناعي
+                            </div>
+                            <div id="playerSummaryOutput" 
+                                 class="llm-output hidden"
+                                 role="region"
+                                 aria-live="polite"
+                                 aria-label="نتائج تحليل نقاط القوة والضعف">
+                                <div class="loading-spinner hidden" 
+                                     aria-label="جاري التحليل..."></div>
+                                <p></p>
+                            </div>
+                            <button id="suggestTrainingBtn" 
+                                    class="modern-btn w-full"
+                                    aria-describedby="training-btn-description">
+                                مقترحات تدريب مخصصة بالذكاء الاصطناعي ✨
+                            </button>
+                            <div id="training-btn-description" class="sr-only">
+                                اضغط للحصول على اقتراحات تدريب مخصصة باستخدام الذكاء الاصطناعي
+                            </div>
+                            <div id="trainingSuggestionOutput" 
+                                 class="llm-output hidden"
+                                 role="region"
+                                 aria-live="polite"
+                                 aria-label="نتائج اقتراحات التدريب">
+                                <div class="loading-spinner hidden"
+                                     aria-label="جاري إنشاء الاقتراحات..."></div>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Section: How It Works (Enhanced) -->
+            <section class="modern-card p-8 mb-8" 
+                     role="region" 
+                     aria-labelledby="how-it-works-heading">
+                <h2 id="how-it-works-heading" class="section-header">كيف يعمل النظام؟ ⚙️</h2>
+                <p class="intro-text">يعتمد النظام على <span class="text-emphasis">مسار معالجة بيانات دقيق</span> لتحويل لقطات الفيديو العادية إلى <span class="text-highlight">رؤى تحليلية عميقة</span>. إليك الخطوات الرئيسية:</p>
+                
+                <div class="process-flow-container" 
+                     role="list" 
+                     aria-label="خطوات عمل النظام">
+                    <div class="process-step" role="listitem" tabindex="0">
+                        <div class="step-icon text-center" aria-hidden="true">📹</div>
+                        <h3>1. إدخال الفيديو</h3>
+                        <p>يقوم المستخدم بتحميل <span class="text-emphasis">مقطع فيديو عادي</span> للمباراة (يمكن أن يكون بكاميرا واحدة أو هاتف ذكي).</p>
+                    </div>
+                    
+                    <div class="process-arrow" aria-hidden="true">→</div>
+                    
+                    <div class="process-step" role="listitem" tabindex="0">
+                        <div class="step-icon text-center" aria-hidden="true">🔍</div>
+                        <h3>2. اكتشاف الكائنات</h3>
+                        <p>باستخدام تقنيات مثل <span class="text-highlight">YOLO</span>، يتم تحديد اللاعبين، الكرة، والحكام في كل إطار من الفيديو <span class="text-emphasis">بدقة عالية</span>.</p>
+                    </div>
+                    
+                    <div class="process-arrow" aria-hidden="true">→</div>
+                    
+                    <div class="process-step" role="listitem" tabindex="0">
+                        <div class="step-icon text-center" aria-hidden="true">🏃‍♂️</div>
+                        <h3>3. تتبع الكائنات</h3>
+                        <p>تستخدم خوارزميات مثل <span class="text-highlight">ByteTrack</span> للحفاظ على هوية ثابتة لكل لاعب والكرة، حتى في حالات الانسداد أو <span class="text-emphasis">الحركة السريعة</span>.</p>
+                    </div>
+                    
+                    <div class="process-arrow" aria-hidden="true">→</div>
+                    
+                    <div class="process-step" role="listitem" tabindex="0">
+                        <div class="step-icon text-center" aria-hidden="true">🗺️</div>
+                        <h3>4. تحويل المنظور</h3>
+                        <p>يتم تحويل إحداثيات اللاعبين والكرة من مساحة البكسل في الفيديو إلى <span class="text-emphasis">مواضع حقيقية</span> على أرض الملعب.</p>
+                    </div>
+                    
+                    <div class="process-arrow" aria-hidden="true">→</div>
+                    
+                    <div class="process-step" role="listitem" tabindex="0">
+                        <div class="step-icon text-center" aria-hidden="true">📊</div>
+                        <h3>5. استخراج التحليلات</h3>
+                        <p>تُعالج البيانات المستخرجة باستخدام <span class="text-highlight">نماذج تعلم آلي</span> لتوليد تقارير الأداء، تحليل القرارات، واقتراح <span class="text-emphasis">التدريبات المخصصة</span>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Section: User Journey -->
+            <section class="modern-card p-8 mb-8" 
+                     role="region" 
+                     aria-labelledby="user-journey-heading">
+                <h2 id="user-journey-heading" class="section-header">رحلة المستخدم: من الفيديو إلى الرؤى 🚀</h2>
+                <div class="space-y-4" role="list" aria-label="خطوات رحلة المستخدم">
+                    <div class="user-journey-step" role="listitem" tabindex="0">
+                        <span class="icon" aria-hidden="true">1️⃣</span>
+                        <div class="text">
+                            <h4>تحميل الفيديو</h4>
+                            <p>يقوم المدرب أو اللاعب بتحميل <span class="text-emphasis">مقطع فيديو للمباراة</span>، حتى لو كان مصورًا بهاتف ذكي.</p>
+                        </div>
+                    </div>
+                    <div class="user-journey-step" role="listitem" tabindex="0">
+                        <span class="icon" aria-hidden="true">2️⃣</span>
+                        <div class="text">
+                            <h4>المعالجة والتحليل</h4>
+                            <p>يتولى النظام <span class="text-highlight">معالجة الفيديو تلقائيًا</span>، مستخدماً الذكاء الاصطناعي لتتبع اللاعبين والكرة وتحليل <span class="text-emphasis">حركاتهم وقراراتهم</span>.</p>
+                        </div>
+                    </div>
+                    <div class="user-journey-step" role="listitem" tabindex="0">
+                        <span class="icon" aria-hidden="true">3️⃣</span>
+                        <div class="text">
+                            <h4>عرض التقارير والرؤى</h4>
+                            <p>بعد المعالجة، تظهر <span class="text-highlight">لوحة تحكم بديهية</span> تعرض تقارير مفصلة وخرائط حرارية ورؤى عن <span class="text-emphasis">أداء اللاعب</span>.</p>
+                        </div>
+                    </div>
+                    <div class="user-journey-step" role="listitem" tabindex="0">
+                        <span class="icon" aria-hidden="true">4️⃣</span>
+                        <div class="text">
+                            <h4>الحصول على رؤى الذكاء الاصطناعي</h4>
+                            <p>يمكن للمستخدم طلب <span class="text-emphasis">ملخص لنقاط القوة والضعف</span> للاعب واقتراحات تدريبية <span class="text-highlight">مخصصة من الذكاء الاصطناعي</span>.</p>
+                        </div>
+                    </div>
+                    <div class="user-journey-step" role="listitem" tabindex="0">
+                        <span class="icon" aria-hidden="true">5️⃣</span>
+                        <div class="text">
+                            <h4>المشاركة والتطبيق</h4>
+                            <p>يستطيع المستخدم <span class="text-emphasis">مشاركة التقارير</span> مع اللاعبين أو أعضاء الفريق لتطبيق الرؤى في <span class="text-highlight">التدريب والمباريات القادمة</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Impact and Future -->
+            <div class="responsive-grid">
+                <section class="modern-card p-8" 
+                         role="region" 
+                         aria-labelledby="current-impact-heading">
+                    <h2 id="current-impact-heading" class="section-header text-2xl">الفائدة الحالية للمشروع 🚀</h2>
+                    <div class="flex items-center justify-center bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-2xl mb-6">
+                        <span class="text-8xl font-black text-[#00A1E4] mr-6" aria-label="سبعون بالمائة">70%</span>
+                        <div>
+                            <p class="text-xl font-bold text-gray-800 mb-2">تحليل أسرع</p>
+                            <p class="content-text text-large">مقارنة بالطرق اليدوية، مما يوفر <span class="text-emphasis">وقتًا ثمينًا للمدربين</span> ويجعل التدريب أكثر <span class="text-highlight">استهدافًا وفعالية</span>.</p>
+                        </div>
+                    </div>
+                    <p class="content-text">يفتح الباب أمام فرق وأكاديميات ولاعبين لم يكن بإمكانهم الوصول لهذه التقنيات، مما يساهم في <span class="text-highlight">إتاحة الذكاء الاصطناعي للجميع</span> في كرة القدم.</p>
+                </section>
+
+                <section class="modern-card p-8" 
+                         role="region" 
+                         aria-labelledby="future-developments-heading">
+                    <h2 id="future-developments-heading" class="section-header text-2xl">التطورات المستقبلية المقترحة 📈</h2>
+                    <div class="space-y-4" role="list" aria-label="التطورات المستقبلية">
+                        <div class="flex items-start p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl" role="listitem">
+                            <span class="bg-gradient-to-r from-[#00A1E4] to-[#0077C0] text-white rounded-full px-3 py-1 text-sm font-bold ml-3 mt-1" aria-hidden="true">1</span>
+                            <div>
+                                <h4 class="font-bold text-[#0077C0] mb-1">تحليل أداء الفريق ككل</h4>
+                                <p class="text-sm text-gray-600">دراسة التكتيكات الجماعية وأنماط التنسيق.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl" role="listitem">
+                            <span class="bg-gradient-to-r from-[#00A1E4] to-[#0077C0] text-white rounded-full px-3 py-1 text-sm font-bold ml-3 mt-1" aria-hidden="true">2</span>
+                            <div>
+                                <h4 class="font-bold text-[#0077C0] mb-1">التعرف التلقائي على اللاعبين</h4>
+                                <p class="text-sm text-gray-600">باستخدام تقنيات التعرف على الوجوه أو أرقام القمصان.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl" role="listitem">
+                            <span class="bg-gradient-to-r from-[#00A1E4] to-[#0077C0] text-white rounded-full px-3 py-1 text-sm font-bold ml-3 mt-1" aria-hidden="true">3</span>
+                            <div>
+                                <h4 class="font-bold text-[#0077C0] mb-1">دمج بيانات GPS واللياقة</h4>
+                                <p class="text-sm text-gray-600">للحصول على صورة شاملة عن الحمل البدني ومخاطر الإصابة.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl" role="listitem">
+                            <span class="bg-gradient-to-r from-[#00A1E4] to-[#0077C0] text-white rounded-full px-3 py-1 text-sm font-bold ml-3 mt-1" aria-hidden="true">4</span>
+                            <div>
+                                <h4 class="font-bold text-[#0077C0] mb-1">التنبؤ بمخاطر الإصابة</h4>
+                                <p class="text-sm text-gray-600">بناء نماذج متقدمة لتحديد اللاعبين المعرضين للخطر.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="modern-card p-6 mt-12 text-center" 
+                role="contentinfo" 
+                aria-label="معلومات الموقع">
+            <div class="flex items-center justify-center space-x-4 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-[#00A1E4] to-[#0077C0] rounded-full flex items-center justify-center" 
+                     aria-hidden="true">
+                    <span class="text-white text-2xl">⚽</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-[#005082] text-lg">محلل أداء اللاعبين بالذكاء الاصطناعي</h3>
+                    <p class="text-sm text-gray-500">مشروع تخرج متميز | &copy; 2025</p>
+                </div>
+            </div>
+            <div class="pt-4 border-t border-gray-200">
+                <p class="text-xs text-gray-400">تم تطوير هذا المشروع باستخدام أحدث تقنيات الذكاء الاصطناعي والرؤية الحاسوبية</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Function to process asterisk emphasis in text
+        function processAsteriskEmphasis(text) {
+            // Replace **text** with <span class="asterisk-emphasis">text</span>
+            return text.replace(/\*\*(.*?)\*\*/g, '<span class="asterisk-emphasis">$1</span>');
+        }
+
+        // Function to apply emphasis to any element's content
+        function applyEmphasisToElement(element) {
+            if (element.innerHTML) {
+                element.innerHTML = processAsteriskEmphasis(element.innerHTML);
+            }
+        }
+
+        // LLM Integration
+        async function callGeminiAPI(prompt, outputElementId, loadingElementId) {
+            const outputElement = document.getElementById(outputElementId);
+            const loadingElement = outputElement.querySelector('.loading-spinner');
+            const outputTextElement = outputElement.querySelector('p');
+
+            outputElement.classList.remove('hidden');
+            loadingElement.classList.remove('hidden');
+            outputTextElement.textContent = '';
+
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    let text = result.candidates[0].content.parts[0].text;
+                    
+                    // Process asterisk emphasis in the LLM response
+                    text = processAsteriskEmphasis(text);
+                    
+                    // Set innerHTML instead of textContent to render HTML
+                    outputTextElement.innerHTML = text;
+                    
+                    // Add analysis-block class to the output for better styling
+                    outputElement.classList.add('analysis-block');
+                } else {
+                    outputTextElement.textContent = 'تعذر الحصول على استجابة من الذكاء الاصطناعي.';
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                outputTextElement.textContent = 'حدث خطأ أثناء الاتصال بالذكاء الاصطناعي.';
+            } finally {
+                loadingElement.classList.add('hidden');
+            }
+        }
+
+        // Ensure DOM is fully loaded before attaching event listeners
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Process any existing asterisk emphasis in the page
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(element => {
+                // Only process text nodes, avoid processing script tags and already processed elements
+                if (element.tagName !== 'SCRIPT' && element.tagName !== 'STYLE' && 
+                    !element.classList.contains('asterisk-emphasis') && 
+                    element.children.length === 0 && 
+                    element.textContent.includes('**')) {
+                    applyEmphasisToElement(element);
+                }
+            });
+
+            // Event listener for Strengths/Weaknesses Summary
+            const summarizePlayerBtn = document.getElementById('summarizePlayerBtn');
+            if (summarizePlayerBtn) {
+                summarizePlayerBtn.addEventListener('click', () => {
+                    const playerMetrics = `
+                    الموقع على الملعب: يميل للتحرك كثيراً ويغطي مساحات واسعة.
+                    اللياقة البدنية: مسافة مقطوعة عالية، سرعة قصوى جيدة، معدل ركض عالٍ.
+                    نسبة التمريرات الصحيحة: 88% (قصيرة)، 70% (طويلة).
+                    القرارات تحت الضغط: أحياناً يتردد ويخسر الكرة.
+                    التواصل مع الفريق: يشارك في Give-and-go بشكل جيد.
+                    عدد الأخطاء: 3 تمريرات خاطئة، خطأ دفاعي واحد.
+                    المساهمة: هجومية جيدة.
+                    كمدافع: 5 تدخلات ناجحة، 3 تشتيتات، فاز بـ 70% من الصراعات الهوائية.
+                    كمهاجم: 2 تسديدة على المرمى، معدل xG 0.8، أضاع فرصة محققة واحدة، 4 مراوغات ناجحة.
+
+                    حلل هذه البيانات وقدم ملخصًا لنقاط القوة والضعف الرئيسية لهذا اللاعب. استخدم ** لتأكيد النقاط المهمة.
+                    `;
+                    callGeminiAPI(playerMetrics, 'playerSummaryOutput', 'playerSummaryOutput .loading-spinner');
+                });
+            } else {
+                console.warn("Element with ID 'summarizePlayerBtn' not found.");
+            }
+
+            // Event listener for Custom Training Suggestion
+            const suggestTrainingBtn = document.getElementById('suggestTrainingBtn');
+            if (suggestTrainingBtn) {
+                suggestTrainingBtn.addEventListener('click', () => {
+                    const weaknessPrompt = `
+                    لاعب كرة قدم يعاني من ضعف في "الاحتفاظ بالكرة تحت الضغط" و "اتخاذ القرار السريع في الثلث الأخير". اقترح تمرينين تدريبيين محددين لمعالجة هاتين النقطتين. استخدم ** لتأكيد النقاط المهمة والتمارين الأساسية.
+                    `;
+                    callGeminiAPI(weaknessPrompt, 'trainingSuggestionOutput', 'trainingSuggestionOutput .loading-spinner');
+                });
+            } else {
+                console.warn("Element with ID 'suggestTrainingBtn' not found.");
+            }
+        });
+    </script>
+</body>
+
+</html>

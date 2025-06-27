@@ -626,6 +626,20 @@
             border-left: 4px solid #38a169;
             color: #2f855a;
         }
+
+        /* Info states */
+        .info-state {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+            border-left: 4px solid #00A1E4;
+            color: #0077C0;
+        }
+
+        /* Warning states */
+        .warning-state {
+            background: linear-gradient(135deg, #fffaf0 0%, #fef5e7 100%);
+            border-left: 4px solid #f39c12;
+            color: #d68910;
+        }
         .asterisk-emphasis {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
@@ -2276,36 +2290,176 @@
                             <button id="summarizePlayerBtn" 
                                     class="modern-btn w-full"
                                     aria-describedby="summarize-btn-description">
-                                تحليل نقاط القوة والضعف بالذكاء الاصطناعي ✨
+                                📊 عرض مثال: تحليل نقاط القوة والضعف
                             </button>
                             <div id="summarize-btn-description" class="sr-only">
-                                اضغط للحصول على تحليل شامل لنقاط القوة والضعف باستخدام الذكاء الاصطناعي
+                                اضغط لعرض مثال توضيحي على تحليل نقاط القوة والضعف
+                            </div>
+                            <div style="background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%); padding: 0.75rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #0ea5e9;">
+                                <p style="margin: 0; font-size: 0.9rem; color: #0369a1;">
+                                    � <strong>اضغط الزر أعلاه</strong> لعرض مثال توضيحي على التحليل الذي ينتجه النظام للاعبين.
+                                </p>
                             </div>
                             <div id="playerSummaryOutput" 
-                                 class="llm-output hidden"
+                                 class="llm-output analysis-block"
                                  role="region"
                                  aria-live="polite"
                                  aria-label="نتائج تحليل نقاط القوة والضعف">
                                 <div class="loading-spinner hidden" 
                                      aria-label="جاري التحليل..."></div>
-                                <p></p>
+                                <div>
+                                    <h4>📊 تحليل شامل للأداء</h4>
+                                    <div class="section-content">
+                                        <h5>🔍 تحليل البيانات:</h5>
+                                        <p><strong>1. النشاط والموقع:</strong> اللاعب يميل للتحرك كثيراً ويغطي مساحات واسعة، مما يدل على <span class="asterisk-emphasis">نشاط بدني عالٍ</span> وقدرة على التواجد في مناطق مختلفة من الملعب حسب الحاجة.</p>
+                                        
+                                        <p><strong>2. اللياقة البدنية:</strong> الأرقام تؤكد النشاط، حيث يتمتع بمسافة مقطوعة عالية ومعدل ركض عالٍ، بالإضافة إلى سرعة قصوى جيدة. هذا يشير إلى <span class="asterisk-emphasis">لياقة بدنية ممتازة</span> تسمح له بالحفاظ على مستوى عالٍ من الأداء طوال المباراة.</p>
+                                        
+                                        <p><strong>3. التمرير:</strong> دقة عالية في التمريرات القصيرة (88%)، مما يدل على قدرة جيدة على بناء اللعب وتبادل الكرات القريبة. دقة أقل في التمريرات الطويلة (70%)، وهي نسبة مقبولة لكنها ليست بنفس مستوى التمريرات القصيرة.</p>
+                                        
+                                        <p><strong>4. القرارات تحت الضغط:</strong> التردد وفقدان الكرة تحت الضغط يمثل <span class="asterisk-emphasis">نقطة ضعف واضحة</span> تؤثر على استمرارية الاستحواذ وسلاسة اللعب عند مواجهة دفاع منظم أو ضغط عالٍ.</p>
+                                        
+                                        <p><strong>5. التواصل مع الفريق:</strong> المشاركة الجيدة في Give-and-go تعكس فهم تكتيكي جيد وقدرة على التفاعل بسرعة مع الزملاء في المواقف الهجومية.</p>
+                                    </div>
+                                    
+                                    <h4>💪 نقاط القوة الرئيسية:</h4>
+                                    <div class="strength-point">
+                                        <strong>نشاط كبير ولياقة بدنية ممتازة:</strong> يغطي مساحات واسعة ويحافظ على معدل ركض عالٍ وسرعة جيدة طوال المباراة.
+                                    </div>
+                                    <div class="strength-point">
+                                        <strong>دقة عالية في التمريرات القصيرة:</strong> قدرة ممتازة على بناء اللعب القصير وتبادل الكرات بفعالية.
+                                    </div>
+                                    <div class="strength-point">
+                                        <strong>مساهمة دفاعية قوية:</strong> فعال في التدخلات والنزالات، وقوي جداً في الصراعات الهوائية.
+                                    </div>
+                                    <div class="strength-point">
+                                        <strong>مساهمة هجومية جيدة:</strong> يصل لمناطق الخطر، لديه قدرة على المراوغة ويساهم في خلق الفرص.
+                                    </div>
+                                    
+                                    <h4>⚠️ نقاط الضعف الرئيسية:</h4>
+                                    <div class="weakness-point">
+                                        <strong>التردد وفقدان الكرة تحت الضغط:</strong> يواجه صعوبة في اتخاذ القرارات السريعة عند تعرضه لضغط الخصم، مما يؤدي إلى خسارة الاستحواذ.
+                                    </div>
+                                    <div class="weakness-point">
+                                        <strong>إهدار الفرص المحققة:</strong> بالرغم من وصوله لمواقف جيدة تهديفياً، إلا أنه أضاع فرصة محققة مما يشير إلى حاجة لتحسين الفعالية في إنهاء الهجمات.
+                                    </div>
+                                    
+                                    <div class="section-content" style="margin-top: 2rem; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
+                                        <p><strong>📝 التقييم العام:</strong> اللاعب يتمتع بخصائص بدنية وتكتيكية جيدة تجعله مفيداً في الجانبين الهجومي والدفاعي وبناء اللعب القصير، لكنه يحتاج للعمل على تحسين الجانب الذهني واتخاذ القرارات تحت الضغط بالإضافة إلى زيادة الفعالية أمام المرمى.</p>
+                                    </div>
+                                </div>
                             </div>
                             <button id="suggestTrainingBtn" 
                                     class="modern-btn w-full"
                                     aria-describedby="training-btn-description">
-                                مقترحات تدريب مخصصة بالذكاء الاصطناعي ✨
+                                🏋️ عرض مثال: مقترحات تدريب مخصصة
                             </button>
                             <div id="training-btn-description" class="sr-only">
-                                اضغط للحصول على اقتراحات تدريب مخصصة باستخدام الذكاء الاصطناعي
+                                اضغط لعرض مثال توضيحي على مقترحات التدريب المخصصة
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%); padding: 0.75rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #10b981;">
+                                <p style="margin: 0; font-size: 0.9rem; color: #047857;">
+                                    👆 <strong>اضغط الزر أعلاه</strong> لعرض مثال توضيحي على البرنامج التدريبي المخصص الذي ينتجه النظام.
+                                </p>
                             </div>
                             <div id="trainingSuggestionOutput" 
-                                 class="llm-output hidden"
+                                 class="llm-output analysis-block"
                                  role="region"
                                  aria-live="polite"
                                  aria-label="نتائج اقتراحات التدريب">
                                 <div class="loading-spinner hidden"
                                      aria-label="جاري إنشاء الاقتراحات..."></div>
-                                <p></p>
+                                <div>
+                                    <h4>🏋️ برنامج تدريبي مخصص لمعالجة نقاط الضعف</h4>
+                                    <p>لمعالجة نقطتي الضعف المحددين وهما <span class="asterisk-emphasis">"الاحتفاظ بالكرة تحت الضغط"</span> و <span class="asterisk-emphasis">"اتخاذ القرار السريع في الثلث الأخير"</span>، إليك تمرينين تدريبيين محددين:</p>
+                                    
+                                    <div class="training-exercise">
+                                        <div class="exercise-title">
+                                            🛡️ التمرين الأول: الاحتفاظ بالكرة في مساحة ضيقة تحت الضغط (1v1 أو 2v1)
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>🎯 الهدف الأساسي:</h5>
+                                            <p>تحسين قدرة اللاعب على حماية الكرة والاحتفاظ بها عند وجود مدافع قريب.</p>
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>⚙️ الإعداد والتنظيم:</h5>
+                                            <ul>
+                                                <li>تحديد مساحة مربعة صغيرة (8x8 أو 10x10 أمتار حسب المستوى)</li>
+                                                <li>مدافع واحد (أو مدافعان في حالة 2v1) داخل المساحة</li>
+                                                <li>لاعب محايد أو اثنان خارج المربع لإعادة تمرير الكرة</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>🏃 التنفيذ:</h5>
+                                            <ul>
+                                                <li>تبدأ اللعبة بتمرير الكرة إلى لاعب الهجوم داخل المربع</li>
+                                                <li>مهمة لاعب الهجوم: الحفاظ على الكرة لمدة 10-15 ثانية</li>
+                                                <li>مهمة المدافع: محاولة استخلاص الكرة</li>
+                                                <li>تبديل الأدوار كل عدة جولات</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>🔑 نقاط التركيز الأساسية:</h5>
+                                            <ul>
+                                                <li><strong>استخدام الجسم لحماية الكرة (Body Shielding)</strong></li>
+                                                <li><strong>الحفاظ على مركز ثقل منخفض ومتوازن</strong></li>
+                                                <li><strong>استخدام كلتا القدمين للتحكم في الكرة</strong></li>
+                                                <li><strong>التغيير المفاجئ في اتجاه الحركة</strong></li>
+                                                <li><strong>الوعي بموقع المدافع باستمرار (Scanning)</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="training-exercise">
+                                        <div class="exercise-title">
+                                            ⚡ التمرين الثاني: اللعب الهجومي السريع واتخاذ القرار في الثلث الأخير (3v2 أو 4v3)
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>🎯 الهدف الأساسي:</h5>
+                                            <p>تحسين سرعة اتخاذ القرار (التمرير، التسديد، المراوغة السريعة) والإنهاء تحت ضغط في منطقة الجزاء.</p>
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>⚙️ الإعداد والتنظيم:</h5>
+                                            <ul>
+                                                <li>استخدام جزء من الملعب يشمل منطقة الجزاء والمرمى</li>
+                                                <li>وضع علامات لبداية التمرين عند خط الـ 20-25 متر</li>
+                                                <li>مجموعة هجومية (3-4 لاعبين) ومجموعة دفاعية (2-3 لاعبين)</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>🏃 التنفيذ:</h5>
+                                            <ul>
+                                                <li>تبدأ الكرة مع أحد اللاعبين الهجوميين عند نقطة البداية</li>
+                                                <li>الهجوم على المرمى ضد المجموعة الدفاعية</li>
+                                                <li>اتخاذ قرارات سريعة: تسديد، تمرير، أم مراوغة؟</li>
+                                                <li>تسجيل النقاط وتبديل الأدوار</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="exercise-section">
+                                            <h5>🔑 نقاط التركيز الأساسية:</h5>
+                                            <ul>
+                                                <li><strong>مسح الملعب باستمرار (Scanning) قبل استلام الكرة</strong></li>
+                                                <li><strong>اللمسة الأولى الجيدة لتسهيل الخيار التالي</strong></li>
+                                                <li><strong>سرعة رد الفعل وقراءة الموقف</strong></li>
+                                                <li><strong>التواصل الفعال مع الزملاء</strong></li>
+                                                <li><strong>تنفيذ القرار بدقة وسرعة</strong></li>
+                                                <li><strong>عدم التردد في اتخاذ القرار</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="section-content" style="margin-top: 2rem; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b;">
+                                        <p><strong>📌 ملاحظة هامة:</strong> يجب على المدرب توجيه اللاعب باستمرار خلال هذه التمارين، وتقديم ملاحظات محددة حول القرارات التي يتخذها وكيفية حماية الكرة أو متى كان عليه اتخاذ قرار مختلف أو أسرع.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2496,51 +2650,36 @@
             }
         }
 
-        // LLM Integration
-        async function callGeminiAPI(prompt, outputElementId, loadingElementId) {
-            const outputElement = document.getElementById(outputElementId);
-            const loadingElement = outputElement.querySelector('.loading-spinner');
-            const outputTextElement = outputElement.querySelector('p');
+        // Function to show example analysis results
+        function showExampleAnalysis() {
+            // The example content is already displayed in the HTML
+            // This function can be used to scroll to the results or add animation
+            const outputElement = document.getElementById('playerSummaryOutput');
+            if (outputElement) {
+                // Add a subtle animation to draw attention
+                outputElement.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    outputElement.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Scroll to the results
+                outputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
 
-            outputElement.classList.remove('hidden');
-            loadingElement.classList.remove('hidden');
-            outputTextElement.textContent = '';
-
-            try {
-                let chatHistory = [];
-                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                const payload = { contents: chatHistory };
-                const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    let text = result.candidates[0].content.parts[0].text;
-                    
-                    // Process asterisk emphasis in the LLM response
-                    text = processAsteriskEmphasis(text);
-                    
-                    // Set innerHTML instead of textContent to render HTML
-                    outputTextElement.innerHTML = text;
-                    
-                    // Add analysis-block class to the output for better styling
-                    outputElement.classList.add('analysis-block');
-                } else {
-                    outputTextElement.textContent = 'تعذر الحصول على استجابة من الذكاء الاصطناعي.';
-                }
-            } catch (error) {
-                console.error('Error calling Gemini API:', error);
-                outputTextElement.textContent = 'حدث خطأ أثناء الاتصال بالذكاء الاصطناعي.';
-            } finally {
-                loadingElement.classList.add('hidden');
+        // Function to show example training suggestions
+        function showExampleTraining() {
+            // The example content is already displayed in the HTML
+            const outputElement = document.getElementById('trainingSuggestionOutput');
+            if (outputElement) {
+                // Add a subtle animation to draw attention
+                outputElement.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    outputElement.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Scroll to the results
+                outputElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
@@ -2562,20 +2701,7 @@
             const summarizePlayerBtn = document.getElementById('summarizePlayerBtn');
             if (summarizePlayerBtn) {
                 summarizePlayerBtn.addEventListener('click', () => {
-                    const playerMetrics = `
-                    الموقع على الملعب: يميل للتحرك كثيراً ويغطي مساحات واسعة.
-                    اللياقة البدنية: مسافة مقطوعة عالية، سرعة قصوى جيدة، معدل ركض عالٍ.
-                    نسبة التمريرات الصحيحة: 88% (قصيرة)، 70% (طويلة).
-                    القرارات تحت الضغط: أحياناً يتردد ويخسر الكرة.
-                    التواصل مع الفريق: يشارك في Give-and-go بشكل جيد.
-                    عدد الأخطاء: 3 تمريرات خاطئة، خطأ دفاعي واحد.
-                    المساهمة: هجومية جيدة.
-                    كمدافع: 5 تدخلات ناجحة، 3 تشتيتات، فاز بـ 70% من الصراعات الهوائية.
-                    كمهاجم: 2 تسديدة على المرمى، معدل xG 0.8، أضاع فرصة محققة واحدة، 4 مراوغات ناجحة.
-
-                    حلل هذه البيانات وقدم ملخصًا لنقاط القوة والضعف الرئيسية لهذا اللاعب. استخدم ** لتأكيد النقاط المهمة.
-                    `;
-                    callGeminiAPI(playerMetrics, 'playerSummaryOutput', 'playerSummaryOutput .loading-spinner');
+                    showExampleAnalysis();
                 });
             } else {
                 console.warn("Element with ID 'summarizePlayerBtn' not found.");
@@ -2585,10 +2711,7 @@
             const suggestTrainingBtn = document.getElementById('suggestTrainingBtn');
             if (suggestTrainingBtn) {
                 suggestTrainingBtn.addEventListener('click', () => {
-                    const weaknessPrompt = `
-                    لاعب كرة قدم يعاني من ضعف في "الاحتفاظ بالكرة تحت الضغط" و "اتخاذ القرار السريع في الثلث الأخير". اقترح تمرينين تدريبيين محددين لمعالجة هاتين النقطتين. استخدم ** لتأكيد النقاط المهمة والتمارين الأساسية.
-                    `;
-                    callGeminiAPI(weaknessPrompt, 'trainingSuggestionOutput', 'trainingSuggestionOutput .loading-spinner');
+                    showExampleTraining();
                 });
             } else {
                 console.warn("Element with ID 'suggestTrainingBtn' not found.");
